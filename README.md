@@ -1,6 +1,6 @@
 # React iPhone Lock Screen Keypad
 
-![Demo](demo.gif)
+![image](https://i.imgur.com/lNK8KMb.png)
 
 This is a React component that simulates an iPhone lock screen keypad. It provides a user-friendly interface for entering a passcode, and it utilizes several popular packages such as Framer Motion, React Router, and Tailwind CSS.
 
