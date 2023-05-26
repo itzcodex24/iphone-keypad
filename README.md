@@ -55,8 +55,6 @@ For more details on each package, refer to their official documentation.
 
 Contributions are welcome! If you find a bug or have a suggestion for improvement, please open an issue or submit a pull request.
 
-Before contributing, please read the [Contributing Guidelines](CONTRIBUTING.md) for more details.
-
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
