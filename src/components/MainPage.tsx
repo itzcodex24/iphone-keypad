@@ -139,7 +139,7 @@ function MainPage() {
           <div className="relative">
             {loading && (
               <div className="absolute left-[50%] top-[50%] -translate-x-[50%] -translate-y-[50%]">
-                <Spinner className="text-primary" size={"xl"} thickness="5px" />
+                <Spinner className="text-primary" size={"xl"} thickness="3px" />
               </div>
             )}
 
