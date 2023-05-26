@@ -57,7 +57,7 @@ Contributions are welcome! If you find a bug or have a suggestion for improvemen
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the <b>MIT License</b>
 
 ## Acknowledgements
 
