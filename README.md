@@ -14,7 +14,7 @@ This is a React component that simulates an iPhone lock screen keypad. It provid
 
 ## Demo
 
-Check out the [live demo](https://your-demo-link.com) to see the React iPhone Lock Screen Keypad in action.
+Check out the [live demo](https://i-phone-keypad.vercel.app/) to see the React iPhone Lock Screen Keypad in action.
 
 ## Installation
 
@@ -26,7 +26,7 @@ To use this component in your React project, follow these steps:
 
 2. Navigate to the project directory:
 
-`cd phone-keypad`
+`cd iphone-keypad`
 
 3. Install the dependencies:
 
