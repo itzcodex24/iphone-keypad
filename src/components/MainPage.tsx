@@ -81,7 +81,7 @@ function MainPage() {
       setError("You have exceeded the maximum number of tries");
       localStorage.setItem(
         "timeout",
-        new Date(new Date().getTime() + 30 * 1000).toString()
+        new Date(new Date().getTime() + 30 * 1000).toString(),
       );
     }
   }, [tries]);
@@ -103,7 +103,7 @@ function MainPage() {
   }, [numbers]);
 
   const handleAddNum = (num: number) => {
-    setNumbers([...numbers, num]);
+    setNumbers((prev) => [...prev, num]);
   };
   return (
     <>
@@ -148,45 +148,115 @@ function MainPage() {
                 loading && "blur-md"
               }`}
             >
-              <div
-                className={`relative w-full justify-between items-center flex `}
+              <motion.div
+                className={`w-full justify-between items-center flex `}
+                variants={{
+                  hidden: {
+                    opacity: 0,
+                    y: 100,
+                  },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: {
+                      delay: 0.1,
+                    },
+                  },
+                }}
+                initial="hidden"
+                animate="visible"
               >
                 {[1, 2, 3].map((num, i) => (
                   <Button
                     key={i}
+                    index={i}
                     number={num}
                     disabled={typeof error == "string"}
                     onClick={(num) => handleAddNum(num)}
                   />
                 ))}
-              </div>
-              <div className="w-full justify-between items-center flex">
+              </motion.div>
+              <motion.div
+                className="w-full justify-between items-center flex"
+                variants={{
+                  hidden: {
+                    opacity: 0,
+                    y: 100,
+                  },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: {
+                      delay: 0.2,
+                    },
+                  },
+                }}
+                initial="hidden"
+                animate="visible"
+              >
                 {[4, 5, 6].map((num, i) => (
                   <Button
                     key={i}
+                    index={i}
                     number={num}
                     disabled={typeof error == "string"}
                     onClick={(num) => handleAddNum(num)}
                   />
                 ))}
-              </div>
-              <div className="w-full justify-between items-center flex">
+              </motion.div>
+              <motion.div
+                className="w-full justify-between items-center flex"
+                variants={{
+                  hidden: {
+                    opacity: 0,
+                    y: 100,
+                  },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: {
+                      delay: 0.3,
+                    },
+                  },
+                }}
+                initial="hidden"
+                animate="visible"
+              >
                 {[7, 8, 9].map((num, i) => (
                   <Button
+                    index={i}
                     key={i}
                     number={num}
                     disabled={typeof error == "string"}
                     onClick={(num) => handleAddNum(num)}
                   />
                 ))}
-              </div>
-              <div className="w-full flex justify-center items-center">
+              </motion.div>
+              <motion.div
+                className="w-full flex justify-center items-center"
+                variants={{
+                  hidden: {
+                    opacity: 0,
+                    y: 100,
+                  },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: {
+                      delay: 0.4,
+                    },
+                  },
+                }}
+                initial="hidden"
+                animate="visible"
+              >
                 <Button
+                  index={0}
                   number={0}
                   onClick={(num) => handleAddNum(num)}
                   disabled={typeof error == "string"}
                 />
-              </div>
+              </motion.div>
             </div>
           </div>
           {typeof error == "string" && (
