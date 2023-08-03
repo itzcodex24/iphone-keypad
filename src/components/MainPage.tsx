@@ -6,7 +6,9 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "./Button";
 import MotionPage from "./MotionPage";
-const passcode = "1234";
+
+const PASSCODE = "1234";
+const MAX_TRIES = 3;
 
 function MainPage() {
   const [tries, setTries] = useState<number>(0);
@@ -77,7 +79,7 @@ function MainPage() {
   }, []);
 
   useEffect(() => {
-    if (tries === 3) {
+    if (tries === MAX_TRIES) {
       setError("You have exceeded the maximum number of tries");
       localStorage.setItem(
         "timeout",
@@ -87,8 +89,8 @@ function MainPage() {
   }, [tries]);
 
   useEffect(() => {
-    if (numbers.length === passcode.length) {
-      if (numbers.join("") === passcode) {
+    if (numbers.length === PASSCODE.length) {
+      if (numbers.join("") === PASSCODE) {
         localStorage.setItem("bypass", "true");
         setLoading(true);
         setTimeout(() => {
@@ -126,7 +128,7 @@ function MainPage() {
                 },
               }}
             >
-              {passcode.split("").map((_, index) => (
+              {PASSCODE.split("").map((_, index) => (
                 <div
                   key={index}
                   className={`w-4 h-4 p-1 rounded-full border-primary border-2 transition-colors duration-600 ease-in-out ${
