@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
-import React from "react";
+import { motion, useAnimation } from "framer-motion";
+import React, { useEffect } from "react";
 
 interface Props {
   number: number;
@@ -14,6 +14,10 @@ const Button: React.FC<Props> = ({
   disabled = false,
   index,
 }) => {
+  const animate = useAnimation();
+  useEffect(() => {
+    animate.start("visible");
+  }, []);
   return (
     <motion.button
       variants={{
@@ -26,11 +30,20 @@ const Button: React.FC<Props> = ({
             delay: index * 0.1,
           },
         },
+        blink: {
+          opacity: [1, 0.3, 1],
+          transition: {
+            duration: 0.3,
+          },
+        },
       }}
       initial="initial"
-      animate="visible"
+      animate={animate}
       disabled={disabled}
-      onClick={() => onClick(number)}
+      onClick={() => {
+        animate.start("blink");
+        onClick(number);
+      }}
       className="rounded-full h-14 w-14 flex justify-center items-center bg-opacity-70 font-bold text-2xl disabled:opacity-50 disabled:cursor-not-allowed text-primary bg-tertiary outline-none"
     >
       {number}
